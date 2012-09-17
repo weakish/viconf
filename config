@@ -1,0 +1,4 @@
+# command #config_file location relative to $HOME #verify_syntax_command
+# seperated with ONE space character
+awesome .config/awesome/rc.lua awesome --check
+vim .vimrc echo 'Checking syntax is not implemented yet.'
