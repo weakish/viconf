@@ -30,3 +30,12 @@ viconf_edit () {
 
 viconf_edit
 
+# post-hook example
+#
+# commit in git repo
+# 
+# Usage: viconf command 'commit message'
+#
+# cd $HOME/dotfiles/
+# git commit -m $2
+
