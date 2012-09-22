@@ -15,7 +15,7 @@ viconf_edit () {
   editor $temp_config_file
   $command_check $temp_config_file
   if [ $? -eq 0 ]; then
-    mv $temp_config_file $config_file
+    cat $temp_config_file > $config_file
   else
     echo 'There is something wrong with the syntax.'
     read -p 'Edit it again?(Y/n):' user_response
