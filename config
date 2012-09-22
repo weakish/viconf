@@ -1,4 +1,6 @@
 # command #config_file location relative to $HOME #verify_syntax_command
-# seperated with ONE space character
+# Seperated with ONE space character.
+# Keep it sorted. ([0-9a-z])
 awesome .config/awesome/rc.lua awesome --check --config
-vim .vimrc echo 'Checking syntax is not implemented yet.'
+viconf .config/viconf/config viconf-check
+

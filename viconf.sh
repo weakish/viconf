@@ -6,7 +6,7 @@ command=$1
 meta_config="$HOME/.config/viconf/config"
 command_record=$(grep "^$command " $meta_config)
 command_config=$(echo $command_record | cut -d' ' -f2)
-config_file=$HOME/$command_config
+export config_file=$HOME/$command_config
 temp_config_file=$(tempfile)
 command_check=$(echo $command_record | cut -d' ' -f3-)
 
