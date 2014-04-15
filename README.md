@@ -19,3 +19,8 @@ About
 - I cannot remembered where programs put their config file.
 - I am too lazy to `man command` to look up the config file location.
 - I often make typos when editing config files.
+
+Contribute
+-----------
+
+<https://github.com/weakish/viconf>
