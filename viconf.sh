@@ -1,5 +1,5 @@
 #!/bin/sh
-# by Jakukyo Friel <weakish@gmail.com> under GPL v2.
+# by Jakukyo Friel <weakish@gmail.com> under Apache-v2.
 
 
 command=$1

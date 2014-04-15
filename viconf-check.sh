@@ -1,6 +1,8 @@
 #!/bin/sh
+# By Jakukyo Friel <weakish@gmail.com>, under Apache-v2.
 
-repo_url=https://gitcafe.com/weakish/viconf/
+
+repo_url=https://github.com/weakish/viconf
 if grep -q viconf $config_file ; then
   echo
   echo "Adding entries to viconf's database?"
