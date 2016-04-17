@@ -1,5 +1,4 @@
 #!/bin/sh
-# By Jakukyo Friel <weakish@gmail.com>, under Apache-v2.
 
 
 repo_url=https://github.com/weakish/viconf

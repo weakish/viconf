@@ -1,5 +1,4 @@
 #!/bin/sh
-# by Jakukyo Friel <weakish@gmail.com> under Apache-v2.
 
 command=$1
 meta_config="$HOME/.config/viconf/config"
