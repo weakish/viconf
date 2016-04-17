@@ -1,10 +1,15 @@
 #!/bin/sh
 # by Jakukyo Friel <weakish@gmail.com> under Apache-v2.
 
-set -x
 command=$1
 meta_config="$HOME/.config/viconf/config"
 command_record=$(grep "^$command," $meta_config)
+if [ -z "$command_record" ]; then
+  echo "We do not know $command."
+  echo 'Please add it via `viconf viconf`.'
+  exit 69  # EX_UNAVAILABLE
+fi
+
 command_config=$(echo $command_record | cut -d',' -f2)
 export config_file=$HOME/$command_config
 temp_config_file=$(tempfile)
