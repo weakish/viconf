@@ -2,15 +2,18 @@
 # Keep it sorted. ([0-9a-z])
 
 # command config_file_path_relative_to_$HOME verify_syntax_command
-amule .aMule/amule.conf viconf-check
+amule .aMule/amule.conf
+aria2 .aria2/aria2.conf
 awesome .config/awesome/rc.lua awesome -k -c
 bash .bashrc bash -n
 dash .profile dash -n
-fish .config/fish/config.fish fish -n
+# We does not use `fish -n` because it complains valid `eval` command.
+fish .config/fish/config.fish
 git .gitconfig git config -l -f
 gvim .gvimrc viconf-check
 hg .hgrc viconf-check
 offlineimap .offlineimaprc viconf-check
+pry .pryrc pry -c
 readline .inputrc viconf-check
 ssh .ssh/config viconf-check
 tmux .tmux.conf viconf-check
