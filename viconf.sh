@@ -1,20 +1,20 @@
 #!/bin/sh
 # by Jakukyo Friel <weakish@gmail.com> under Apache-v2.
 
-
+set -x
 command=$1
 meta_config="$HOME/.config/viconf/config"
-command_record=$(grep "^$command " $meta_config)
-command_config=$(echo $command_record | cut -d' ' -f2)
+command_record=$(grep "^$command," $meta_config)
+command_config=$(echo $command_record | cut -d',' -f2)
 export config_file=$HOME/$command_config
 temp_config_file=$(tempfile)
-command_check=$(echo $command_record | cut -d' ' -f3-)
+command_check=$(echo $command_record | cut -d',' -f3-)
 
 
 viconf_edit () {
   cat $config_file > $temp_config_file
   editor $temp_config_file
-  $command_check $temp_config_file
+  ${command_check:-viconf-check} $temp_config_file
 
   if [ $? -eq 0 ]; then
     cat $temp_config_file > $config_file
@@ -40,7 +40,7 @@ viconf_edit
 # post-hook example
 #
 # commit in git repo
-# 
+#
 # Usage: viconf command 'commit message'
 #
 # cd $HOME/dotfiles/
