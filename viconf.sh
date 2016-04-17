@@ -12,7 +12,9 @@ command_check=$(echo $command_record | cut -d',' -f3-)
 
 
 viconf_edit () {
-  cat $config_file > $temp_config_file
+  if ${first_editing:-true}; then
+    cat $config_file > $temp_config_file
+  fi
   editor $temp_config_file
   ${command_check:-viconf-check} $temp_config_file
 
@@ -20,6 +22,7 @@ viconf_edit () {
     cat $temp_config_file > $config_file
     # We don't use `mv`, since if $config_file is a symbolic link, `mv` will overrides it.
   else
+    first_editing=false
     echo
     echo 'There is something wrong with the syntax.'
     read -p 'Edit it again?(Y/n):' user_response
