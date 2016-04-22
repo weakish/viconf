@@ -28,10 +28,24 @@ Run:
 Then `viconf` will open the config file for this command, and you can edit it.
 And `viconf` will try to check the syntax before saving the file.
 
+Occasionally, run `viconf-syncdb` to update meta config file.
+
 Install
 --------
 
-You need `wget` and node module `coffee`, `shelljs` to install this script.
+### With basher
+
+```sh
+; basher install weakish/viconf
+; viconf-syncdb
+```
+
+Require [basher][] version: `>=39875bc`.
+
+[basher]: https://github.com/basherpm/basher
+
+### With node
+
 
 ```sh
 sudo npm install -g coffee-script
