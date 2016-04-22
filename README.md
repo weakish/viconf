@@ -7,6 +7,17 @@ About
 - I am too lazy to `man command` to look up the config file location.
 - I often make typos when editing config files.
 
+Depends
+--------
+
+`viconf-syncdb`, which updates meta config file,
+a.k.a. a map of commands and config file paths,
+depends on the following programs:
+
+- `curl`
+- `git`
+- `jq`
+
 Usage
 -----
 
@@ -43,11 +54,6 @@ or
 coffee make.coffee install ~/bin
 ```
 
-You can use the following command to update configure files from the upstream repo (Be careful, it will overrides your local changes.)
-
-```sh
-coffee make.coffee updatedb
-```
 
 Contribute
 -----------
