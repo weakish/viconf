@@ -2,7 +2,7 @@
 
 
 repo_url=https://github.com/weakish/viconf
-if echo "$1" | fgrep -q 'viconf/config' ; then
+if grep -q viconf $config_file ; then
   echo
   echo "Adding entries to viconf's database?"
   echo "Consider sending a pull request. Thanks."
@@ -10,7 +10,15 @@ if echo "$1" | fgrep -q 'viconf/config' ; then
   echo
 fi
 
-diff -u $config_file $1
+if [ $config_file_is_empty ]; then
+    if [ -n "$template_config_file" ]; then
+        diff -u $template_config_file $1
+    else
+        cat $1 | sed -r -e 's/^/+ /'
+    fi
+else
+    diff -u $config_file $1
+fi
 read -p 'Review your changes. Do you want to save it?[Y/n]:' save_it
 case $save_it in
   n|N) exit 1 ;;
