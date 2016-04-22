@@ -52,4 +52,9 @@ coffee make.coffee updatedb
 Contribute
 -----------
 
-<https://github.com/weakish/viconf>
+https://github.com/weakish/viconf
+
+License
+--------
+
+0BSD
