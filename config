@@ -8,6 +8,7 @@ gvim,.gvimrc
 hg,.hgrc
 mpv,.config/mpv.conf
 offlineimap,.offlineimaprc
+proxychains,.proxychains/proxychains.conf
 pry,.pryrc
 readline,.inputrc
 ssh,.ssh/config
