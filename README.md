@@ -1,10 +1,10 @@
 About
-------
+-----
 
 `viconf` solves the following problems for me:
 
 - I cannot remembered where programs put their config file.
-- I am too lazy to `man command` to look up the config file location.
+- I am too lazy to `man command` to look up config file location.
 - I often make typos when editing config files.
 
 Depends
