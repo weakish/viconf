@@ -2,7 +2,7 @@
 
 
 repo_url=https://github.com/weakish/viconf
-if grep -q viconf $config_file ; then
+if echo "$1" | fgrep -q 'viconf/config' ; then
   echo
   echo "Adding entries to viconf's database?"
   echo "Consider sending a pull request. Thanks."
