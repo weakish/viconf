@@ -53,6 +53,14 @@ a.k.a. invoke git as:
 git commit --verbose --gpg-sign "$command_config"
 ```
 
+The commit command can be customized via an environment variable
+`VICONF_COMMITTER`.
+
+For example, silently commit without gpg sign:
+
+```sh
+export VICONF_COMMITTER="git commit --allow-empty-message -m ''"
+```
 
 Install
 --------
