@@ -37,6 +37,23 @@ that file will be used as the template.
 
 Occasionally, run `viconf-syncdb` to update meta config file.
 
+An experimental `viconf-commit` will commit changes to config file:
+
+```sh
+viconf-commit command
+```
+
+It will copy the config file of *command* to a git repository
+containing config files, specified by environment variable `CONFIG_REPO`,
+(default value: `~/lib`).
+Then it will bring you to write a git commit message,
+a.k.a. invoke git as:
+
+```sh
+git commit --verbose --gpg-sign "$command_config"
+```
+
+
 Install
 --------
 
