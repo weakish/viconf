@@ -18,6 +18,9 @@ depends on the following programs:
 - `git`
 - `jq`
 
+`viconf` itself dose not depend on any special programs.
+
+
 Usage
 -----
 
