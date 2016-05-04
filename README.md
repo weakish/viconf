@@ -26,10 +26,14 @@ Usage
 
 Run:
 
-    viconf command
+    viconf command [template_file]
 
 Then `viconf` will open the config file for this command, and you can edit it.
 And `viconf` will try to check the syntax before saving the file.
+
+If the config file is absent,
+and a second command line argument pointing to a file is provided,
+that file will be used as the template.
 
 Occasionally, run `viconf-syncdb` to update meta config file.
 
