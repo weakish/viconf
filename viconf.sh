@@ -39,6 +39,7 @@ viconf_edit () {
   ${command_check:-viconf-check} $temp_config_file
 
   if [ $? -eq 0 ]; then
+    mkdir -p $(dirname $config_file)
     cat $temp_config_file > $config_file
     # We don't use `mv`, since if $config_file is a symbolic link, `mv` will overrides it.
   else
