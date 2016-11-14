@@ -12,7 +12,7 @@ fi
 
 command_config="$(echo $command_record | cut -d',' -f2)"
 export config_file="$HOME/$command_config"
-temp_config_file=$(tempfile)
+temp_config_file=$(mktemp)
 command_check=$(echo $command_record | cut -d',' -f3-)
 
 viconf_edit () {
