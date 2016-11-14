@@ -35,7 +35,16 @@ viconf_edit () {
       fi
     fi
   fi
-  editor $temp_config_file
+  if (which editor &> /dev/null); then
+    editor $temp_config_file
+  elif (which vim &> /dev/null); then
+    vim $temp_config_file
+  elif (which vi &> /dev/null); then
+    vi $temp_config_file
+  else
+    echo "vim/vi is unavailable."
+    exit 69 # EX_UNAVAILABLE
+  fi
   ${command_check:-viconf-check} $temp_config_file
 
   if [ $? -eq 0 ]; then
