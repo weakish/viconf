@@ -35,5 +35,8 @@ if [ -f $viconf_config ]; then
         sort $viconf_config.current > $viconf_config
     fi
 else
-    get_file_content config $viconf_config
+    if [ ! -d "$config_home/viconf" ]; then
+        mkdir -p "$config_home/viconf"
+    fi
+        get_file_content config $viconf_config
 fi
