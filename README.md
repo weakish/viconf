@@ -76,30 +76,32 @@ Require [basher][] version: `>=39875bc`.
 
 [basher]: https://github.com/basherpm/basher
 
-### With node
-
-
-```sh
-sudo npm install -g coffee-script
-git clone https://github.com/weakish/viconf.git
-cd viconf
-npm install shelljs
-sudo coffee make.coffee
-```
-
-This will install the `viconf` bin file to `/usr/local/bin/`.
-You can specify install directory via `make.coffee install`, e.g.
+### With `make`
 
 ```sh
-sudo coffee make.coffee install /usr/bin
+; git clone https://github.com/weakish/viconf
+; cd viconf
+; make
 ```
+If you do not want to install to `/usr/local/bin`, just change `config.mk`.
 
-or
+The `Makefile` is compatible with both GNU make and BSD make.
+
+Uninstall
+---------
+
+If installed with `basher`, run:
 
 ```sh
-coffee make.coffee install ~/bin
+; basher uninstall weakish/viconf
 ```
 
+If installed with `make`, run:
+
+```sh
+; cd viconf
+; make uninstall
+```
 
 Contribute
 -----------
