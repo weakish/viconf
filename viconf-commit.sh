@@ -9,5 +9,6 @@ command_config="$(echo $command_record | cut -d',' -f2)"
 config_file="$HOME/$command_config"
 cp "$config_file" "$config_repo/$command_config"
 cd "$config_repo"
-committer="${VICONF_COMMITTER:-git commit -a --verbose}"
-$committer "$command_config"
+git init
+git add "$command_config"
+git commit --verbose "$command_config"
