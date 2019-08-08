@@ -62,6 +62,12 @@ For example, silently commit without gpg sign:
 export VICONF_COMMITTER="git commit --allow-empty-message -m ''"
 ```
 
+viconf also supports [chezmoi].
+If chezmoi is found in `PATH`, viconf will invoke chezmoi to edit and apply changes,
+and viconf-commit also invokes chezmoi (it will **stage and commit all changes** in chezmoi repo).
+
+[chezmoi]: https://github.com/twpayne/chezmoi/
+
 Install
 --------
 
