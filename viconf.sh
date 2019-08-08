@@ -35,34 +35,47 @@ viconf_edit () {
       fi
     fi
   fi
-  if (which editor &> /dev/null); then
-    editor $temp_config_file
-  elif (which vim &> /dev/null); then
-    vim $temp_config_file
-  elif (which vi &> /dev/null); then
-    vi $temp_config_file
-  else
-    echo "vim/vi is unavailable."
-    exit 69 # EX_UNAVAILABLE
-  fi
-  ${command_check:-viconf-check} $temp_config_file
-
-  if [ $? -eq 0 ]; then
-    mkdir -p $(dirname $config_file)
-    cat $temp_config_file > $config_file
-    # We don't use `mv`, since if $config_file is a symbolic link, `mv` will overrides it.
-  else
-    first_editing=false
-    echo
-    echo 'There is something wrong with the syntax.'
-    read -p 'Edit it again?(Y/n):' user_response
-    case $user_response in
-      n|N)
-        echo
-        echo 'Due to syntax error, we will not update your config file.'
-        echo 'You can find your edits in' $temp_config_file ;;
-      *) viconf_edit ;;
+  
+  if (which chezmoi &> /dev/null); then
+    chezmoi add $config_file
+    chezmoi edit $config_file 
+    chezmoi diff
+    read -p 'Review your changes. Do you want to apply it?[Y/n/?]:' save_it
+    case $save_it in
+      y|Y) chezmoi apply ;;
+      n|N) exit 1 ;;
+      *) chezmoi -v -n apply ;;
     esac
+  else
+    if (which editor &> /dev/null); then
+      editor $temp_config_file
+    elif (which vim &> /dev/null); then
+      vim $temp_config_file
+    elif (which vi &> /dev/null); then
+      vi $temp_config_file
+    else
+      echo "vim/vi is unavailable."
+      exit 69 # EX_UNAVAILABLE
+    fi
+    
+    ${command_check:-viconf-check} $temp_config_file
+    if [ $? -eq 0 ]; then
+      mkdir -p $(dirname $config_file)
+      cat $temp_config_file > $config_file
+      # We don't use `mv`, since if $config_file is a symbolic link, `mv` will overrides it.
+    else
+      first_editing=false
+      echo
+      echo 'There is something wrong with the syntax.'
+      read -p 'Edit it again?(Y/n):' user_response
+      case $user_response in
+        n|N)
+          echo
+          echo 'Due to syntax error, we will not update your config file.'
+          echo 'You can find your edits in' $temp_config_file ;;
+        *) viconf_edit ;;
+      esac
+    fi
   fi
 }
 
